@@ -1,0 +1,7 @@
+Train Cross-validation Accuracy: 1.0000
+Train Cross-validation ROC AUC: 1.0000
+Valid Cross-validation Accuracy: 0.9988
+Valid Cross-validation ROC AUC: 1.0000
+Test Accuracy: 0.9987
+Test ROC AUC: 1.0000
+Training time: 0.10 seconds
