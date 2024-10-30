@@ -1,49 +1,52 @@
-# Análisis de Riesgo de Crédito con Machine Learning
+# Credit Risk Analysis with Machine Learning
 
-## Descripción del Proyecto
+## Project Description
 
-El objetivo de este proyecto es desarrollar un modelo de machine learning para predecir el riesgo de crédito de los clientes, basándonos en datos financieros y demográficos.
+This repository contains a technical task for a risk data scientist position in a bank entity. The objective of this project is to develop a machine learning model to predict customer credit risk based on financial and demographic data.
 
-## Estructura del Proyecto
+## Project Structure
 
-Para evitar un único notebook demasiado extenso, he dividido el código en varios notebooks y módulos. Esto facilita la claridad, el orden y la reutilización del código.
+To improve clarity, order, and code reusability, the project is divided into various modules. The execution of the `main.py` file will preprocess the data and train and cross-validate both the Logistic Regression and LightGBM models.
 
 <pre style="font-size:14px;">
 data/
-    datos_ml_caixabank.csv
+    risk_data.csv
+notebooks/
+results/
+    before_feature_engineering/
 src/
-    utils/
-        helpers.py
     models/
-        model1.py
-        model2.py
-        model3.py
+        __init__.py
+        lightGBM.py
+        logistic_regression.py
+    utils/
+        __init__.py
+        helpers.py
     config.py
     data_processing.py
-01_eda.ipynb
 main.py
 readme.md
 </pre>
 
-## Insights del Análisis Exploratorio:
+## Exploratory Data Analysis Insights:
 
-- **Distribución del target (`CreditStatus`) en los datos de entrenamiento:**
+- **Target distribution (`CreditStatus`) in training data:**
   - 0: 56.85%
   - 1: 43.15%
-  - **Conclusión**: El dataset está balanceado.
+  - **Conclusion**: The dataset is balanced.
 
-- **No hay valores faltantes en el dataset.**
+- **No missing values in the dataset.**
 
-- **`NumberOfCreditCards` podría considerarse como variable categórica** (tiene 5 valores enteros).
+- **`NumberOfCreditCards` may be considered a categorical variable** (contains 5 integer values).
 
-- **Distribución de variables numéricas**:
-  - La distribución parece normal o discreta, no es necesario realizar transformaciones logarítmicas ni remover outliers.
+- **Numerical variable distribution**:
+  - The distribution appears normal or discrete, so no need for logarithmic transformations or outlier removal.
 
-- **Distribución por clases (`CreditStatus`)**:
-  - `MonthlyIncome` y `TotalDebt` son las variables numéricas más relacionadas con la distribución del target.
+- **Class distribution (`CreditStatus`)**:
+  - `MonthlyIncome` and `TotalDebt` are the numerical variables most associated with target distribution.
 
-- **Variables categóricas**:
-  - `PaymentHistory` también está asociada con el riesgo.
+- **Categorical variables**:
+  - `PaymentHistory` is also associated with credit risk.
 
 ---
 
@@ -94,6 +97,8 @@ The model was improved progressively with feature engineering. Below is a summar
 The confusion matrix shows that the model correctly classified **812 Good** and **544 Bad** credit cases. Misclassifications include **41 Good** cases as Bad and **103 Bad** cases as Good, indicating slightly more errors in identifying Bad credit clients. Overall, it demonstrates strong accuracy in distinguishing Good vs. Bad credit status.
 
 The SHAP plot shows **TotalDebt** and **MonthlyIncome** as top predictors by far, with higher values and lower values, respectively, indicating higher risk. Some of the newly created features also have impact on risk.
+
+---
 
 # MODEL 2: Gradient Boosting Model (LightGBM)
 
