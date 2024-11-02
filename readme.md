@@ -1,3 +1,5 @@
+<img src="https://img.shields.io/badge/pandas-white?logo=pandas&logoColor=250458" style="height: 25px; width: auto;"> <img src="https://img.shields.io/badge/NumPy-white?logo=numpy&logoColor=013243" style="height: 25px; width: auto;"> <img src="https://img.shields.io/badge/LightGBM-white?logo=LightGBM" style="height: 25px; width: auto;"> <img src="https://img.shields.io/badge/SHAP-white?logo=python" style="height: 25px; width: auto;">
+
 # Credit Risk Analysis with Machine Learning
 
 ## Project Description
